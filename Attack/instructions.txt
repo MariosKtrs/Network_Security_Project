@@ -1,8 +1,24 @@
-This script will first update the machine and then install hping3
-Then the user can execute the attack giving just 3 inputs :
+The attack will take place inside the swarm. One of the workers
+wants to ddos the master and to do that he is going to compromise
+the other workers in the swarm.
 
-- His ip with * in the end for nmap to show the other ips surrounding him
+Running the script on one of the workers will first update 
+the machine and then install hping3
+
+The script will then ask for 3 inputs :
+
+- The user's ip with * in the end for nmap to show the other ips surrounding him
 - The victim's ip
 - The open port , which will be displayed directly above the prompt
+
+Then we will run the script on the other machines in the swarm, 
+and to access them we enter the following command:
+
+ssh docker@<ip>
+
+To identify the attack on the victim's pc, we can enter the following command :
+
+sudo tcpdump 'tcp[tcpflags] == tcp-syn' -n
+
 
 Enjoy :)
